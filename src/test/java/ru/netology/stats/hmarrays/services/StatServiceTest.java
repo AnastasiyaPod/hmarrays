@@ -13,7 +13,7 @@ public class StatServiceTest {
     @Test
     public void averageSale() {
         StatService service = new StatService();
-        double[] sales = {15, 11, 19.4, 21, 16, 18, 21.4, 18, 15, 31, 14, 5};
+        double [] sales = {15, 11, 19.4, 21, 16, 18, 21.4, 18, 15, 31, 14, 5};
         long expectedAverageSale = 17;
         long actualAverageSale = (long) service.averageSale(sales);
         Assertions.assertEquals(expectedAverageSale, actualAverageSale);

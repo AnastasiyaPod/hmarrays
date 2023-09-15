@@ -1,4 +1,7 @@
 package ru.netology.stats.hmarrays.services;
+
+import static java.lang.Double.sum;
+
 public class StatService {
     public double amountSales (double[] sales) {
         double selling = 0;
@@ -7,12 +10,8 @@ public class StatService {
         }
         return (long) selling;
     }
-    public double averageSale(double[] sales) {
-        double selling = 0;
-        for (double element : sales) {
-            selling += element;
-        }
-        return selling / sales.length;
+       public double averageSale(double[] sales) {
+        return amountSales(sales) / sales.length;
     }
     public double maxSales(double[] sales) {
         int maxMonth = 0;
@@ -35,27 +34,17 @@ public class StatService {
         return minMonth + 1;
     }
     public double belowAverageSales(double[] sales) {
-        double selling = 0;
-        for (double element : sales) {
-            selling += element;
-        }
-        double averageAmount = selling / sales.length;
         long month = 0;
         for (int i = 1; i < sales.length; i++) {
-            if (averageAmount > sales[i])
+            if (averageSale(sales) > sales[i])
                 month++;
         }
         return month;
     }
     public double aboveAverageSales(double[] sales) {
-        double selling = 0;
-        for (double element : sales) {
-            selling += element;
-        }
-        double averageAmount = selling / sales.length;
         long month = 0;
         for (int i = 1; i < sales.length; i++) {
-            if (averageAmount < sales[i])
+            if (averageSale(sales) < sales[i])
                 month++;
         }
         return month;
